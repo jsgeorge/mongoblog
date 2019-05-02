@@ -1,0 +1,440 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ddd;
+}
+h2,
+h3,
+h4,
+p {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.nav {
+  background: #fff;
+  color: #ccc;
+  height: 80px;
+  padding-top: 15px;
+  margin: 0;
+}
+.navbar-brand {
+  float: left;
+  width: 200px;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 10px;
+  color: rgb(10, 206, 43);
+  text-decoration: none;
+}
+.navbar-brand a {
+  text-decoration: none;
+  color: rgb(247, 137, 11);
+}
+.logo2 {
+  color: blue;
+}
+.nav .navbar-form {
+  float: left;
+  width: 350px;
+  padding-top: 18px;
+}
+.nav .navbar-form input {
+  padding: 5px;
+  width: 300px;
+}
+.nav .navbar-form button {
+  padding: 5px;
+}
+.nav .navbar-right {
+  float: right;
+}
+.nav .navbar-right ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav .navbar-right ul li {
+  float: left;
+  margin: 15px 5px;
+}
+.nav .navbar-right ul li a {
+  padding: 4px 5px;
+  color: blue;
+  text-decoration: none;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.page-container {
+  min-height: 400px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.user-wrapper {
+  background: #fff;
+  height: 300px;
+  float: left;
+  width: 28%;
+  display: block;
+  margin-right: 20px;
+}
+.user-panel .header {
+  background: blue;
+  color: #fff;
+  height: 60px;
+  padding: 10px;
+}
+.user-panel .header h3 {
+  margin: 10px;
+  padding: 10px;
+}
+.user-panel .body {
+  padding: 15px;
+}
+.posts-wrapper {
+  background: transparent;
+  min-height: 500px;
+  float: left;
+  width: 70%;
+}
+.post-detail-wrapper,
+.add-post-wrapper {
+  background: #fff;
+  min-height: 400px;
+  float: left;
+  width: 70%;
+}
+.post-detail {
+  padding: 25px;
+}
+.post-wrapper {
+  background: #fff;
+  min-height: 400px;
+  width: 80%;
+}
+
+input,
+textarea,
+select {
+  width: 95%;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  padding: 4px;
+}
+.signin_wrapper {
+  background: #fff;
+  min-height: 400px;
+  width: 60%;
+  padding: 0 25px;
+}
+.signin_wrapper input {
+  padding: 4px;
+  margin: 5px 0;
+}
+.sidebar {
+  min-height: 400px;
+  background: #fff;
+  width: 28%;
+  float: right;
+}
+.newPost {
+  height: 50px;
+  background: #fff;
+  padding: 5px;
+}
+.newPost .btnNewPost {
+  width: 100%;
+  height: 30px;
+  background: rgb(247, 137, 11);
+  color: #fff;
+  font-size: 15px;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: none;
+}
+.posts-wrapper .search-form-mobile {
+  display: none;
+}
+.posts-wrapper .search-form-mobile input {
+  padding: 5px;
+}
+.post {
+  background: #fff;
+  min-height: 50px;
+  padding: 25px;
+  margin-bottom: 10px;
+  border-bottom: 4px solid #ccc;
+}
+.post-image {
+  height: 200px;
+  background-position: center !important;
+  background-size: cover !important;
+  border: 1px solid #f0f0f0;
+  flex-grow: 1;
+  width: 100%;
+}
+.category {
+  font-size: 12px;
+  font-size: 12px;
+}
+.author,
+.createdAt {
+  font-weight: normal;
+  color: gray;
+  font-size: 12px;
+  margin: 0 6px;
+}
+.title,
+.title a {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: #111;
+}
+
+.text {
+  font-size: 14px;
+}
+.comments-likes {
+  padding-top: 15px;
+  color: gray;
+  font-size: 12px;
+}
+.add-comment input {
+  width: 70%;
+}
+.comments {
+  margin: 20px 0;
+  border-top: 1px solid #ccc;
+}
+.comment {
+  font-size: 14px;
+  margin: 10px 0;
+}
+.inlformBlock {
+  width: 85%;
+  float: left;
+}
+.inlFormBlock input {
+  width: 100%;
+}
+.footer {
+  clear: left;
+  background: blue;
+  color: #ccc;
+  height: 20px;
+  font-size: 12px;
+  padding: 10px 0;
+  text-align: center;
+}
+.page-top {
+  padding: 5px 25px;
+  margin-bottom: 5px;
+  background: #fff;
+  border-bottom: 4px solid #ccc;
+}
+.mobile {
+  display: none;
+}
+.category-wrapper {
+  padding: 0 15px;
+  background: #fff;
+}
+.category-wrapper .list-item {
+  padding: 10px 0;
+}
+.category-wrapper .list-item a {
+  text-decoration: none;
+}
+.list-item {
+  padding: 5px 0;
+}
+.msg {
+  padding: 20px 25px;
+}
+.pageNotFound {
+  width: 100%;
+  background: #fff;
+  padding: 50px;
+  margin-top: 20px;
+  height: 300px;
+}
+
+.error_label {
+  color: red;
+  display: block;
+  font-size: 15px;
+}
+.button-wrapper {
+  padding: 10px 0;
+  width: 100px;
+}
+.like-btn-wrapper {
+  width: 40px;
+}
+.like-btn {
+  padding: 4px;
+  color: #fff;
+  background: blue;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+}
+.button-blue {
+  padding: 8px 30px;
+  color: #fff;
+  background: blue;
+  border: none;
+  border-radius: 40px;
+  width: 100%;
+  text-decoration: none;
+}
+.button-green {
+  padding: 8px 30px;
+  color: #fff;
+  background: rgb(10, 206, 43);
+
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  text-decoration: none;
+}
+@media (min-width: 601px) And (max-width: 900px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .page-container {
+    min-height: 400px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .navbar-brand {
+    width: 150px;
+    font-weight: bold;
+  }
+  .nav .navbar-form {
+    display: none;
+  }
+  .nav .navbar-right {
+    padding: 5px;
+    width: 200px;
+  }
+  .user-wrapper {
+    display: none;
+  }
+  .posts-wrapper {
+    width: 70%;
+  }
+  .posts-wrapper .search-form-mobile {
+    display: block;
+    padding: 8px;
+  }
+  .posts-wrapper .search-form-mobile form input {
+    width: 85%;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid blue;
+  }
+  .posts-wrapper .search-form-mobile form button {
+    padding: 5px 10px;
+  }
+  .newPost {
+    height: 30px;
+  }
+  .newPost button {
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .nav {
+    padding: 10px 0;
+    height: 40px;
+  }
+  .navbar-brand {
+    width: 100px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+
+    padding-left: 15px;
+  }
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+  .nav .navbar-form {
+    display: none;
+  }
+  .nav .navbar-right {
+    margin-top: 10px;
+    padding: 5px;
+    width: 170px;
+  }
+  .nav .navbar-right ul li {
+    margin: 0;
+  }
+  .user-wrapper {
+    display: none;
+  }
+  .posts-wrapper,
+  .post-wrapper,
+  .post-detail-wrapper,
+  .add-post-wrapper,
+  .signin_wrapper {
+    width: 100%;
+  }
+  .signin_wrapper input {
+    width: 70%;
+  }
+  .posts-wrapper .search-form-mobile {
+    display: block;
+    width: 100%;
+    padding: 5px;
+  }
+  .posts-wrapper .search-form-mobile button {
+    padding: 5px 10px;
+  }
+  .posts-wrapper .search-form-mobile form input {
+    width: 80%;
+  }
+  .sidebar {
+    display: none;
+  }
+  .usericon {
+    color: blue;
+    height: 30px;
+    width: 30px;
+  }
+  .newPostbtn {
+    background: rgb(10, 206, 43);
+    height: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding: 0px;
+    margin-left: 10px;
+    text-decoration: none;
+  }
+}
