@@ -13,6 +13,9 @@ import EditAccount from "./components/user/edit_account";
 import AddPost from "./components/posts/addPost";
 import PostDetail from "./components/posts/post/detail";
 import MobileCategories from "./components/posts/categories/mobile-categories";
+
+import AddCategory from "./components/user/admin/addCategory";
+
 /****************************************************************** */
 
 const Routes = () => {
@@ -30,7 +33,10 @@ const Routes = () => {
         <Route path="/posts/new" component={Auth(AddPost, true)} />
         <Route path="/user" component={Auth(UserInfo, true)} />
         <Route path="/edit-account" component={Auth(EditAccount, true)} />
-
+        <Route
+          path="/admin/categories/add"
+          component={Auth(AddCategory, true)}
+        />
         <Route path="/login" component={Auth(Login2, false)} />
         <Route path="/register" component={Auth(Register, false)} />
         <Route exact path="/" component={Auth(Posts, null)} />

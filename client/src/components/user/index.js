@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { UserLogout } from "../../actions/user_actions";
 // const logoutHandler = () => {
 //   this.props.dispatch(UserLogout()).then(response => {
@@ -43,6 +44,12 @@ class UserInfo extends Component {
               </div>
               {/* <button onClick={() => logoutHandler()}>Logout</button> */}
               <LogoutBtn />
+              {this.props.user.userData.isAdmin ? (
+                <div className="links">
+                  <h3>Admin</h3>
+                  <Link to="/admin/categories/add">Add Categories</Link>
+                </div>
+              ) : null}{" "}
             </div>
           </div>
         </div>
