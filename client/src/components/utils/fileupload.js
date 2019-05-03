@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faPlusCircle from "@fortawesome/fontawesome-free-solid/faPlusCircle";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -16,6 +15,7 @@ class FileUpload extends Component {
   }
 
   onDrop = files => {
+    console.log(files);
     this.setState({ uploading: true });
     let formData = new FormData();
     const config = {
@@ -35,8 +35,10 @@ class FileUpload extends Component {
       );
     });
   };
+
   onRemove = id => {};
-  showUploadedImages = () => {
+
+  showUploadedImages = () =>
     this.state.uploadedFiles.map(item => (
       <div
         className="dropzone_box"
@@ -49,7 +51,6 @@ class FileUpload extends Component {
         />
       </div>
     ));
-  };
 
   render() {
     return (
@@ -60,13 +61,15 @@ class FileUpload extends Component {
             <Dropzone
               onDrop={e => this.onDrop(e)}
               multiple={false}
-              className="dropzone"
+              className="dropzone_box"
             >
               <div className="wrap">
                 <FontAwesomeIcon icon={faPlusCircle} />
               </div>
             </Dropzone>
+
             {this.showUploadedImages()}
+
             {this.state.uploading ? (
               <div
                 className="dropzone_box"

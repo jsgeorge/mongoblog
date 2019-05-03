@@ -35,7 +35,7 @@ class Post extends Component {
           <Link to={`/post/${props.title}/${props._id}`}>{props.title}</Link>
         </div>
         <Link to={`/post/${props.title}/${props._id}`}>
-          {props.images.length > 0 ? (
+          {props.images && props.images.length > 0 ? (
             <div
               className="post-image"
               style={{
