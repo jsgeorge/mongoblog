@@ -45,6 +45,7 @@ class FileUpload extends Component {
         key={item.public_id}
         onClick={() => this.onRemove(item.public_id)}
       >
+        {console.log(item.url)}
         <div
           className="wrap"
           style={{ background: `url(${item.url}) no-repeat` }}
