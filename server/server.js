@@ -340,10 +340,11 @@ app.get("/api/users/logout", auth, (req, res) => {
   });
 });
 
-app.post("/api/users/uploadimage", auth, admin, formidable(), (req, res) => {
+app.post("/api/users/uploadimage", auth, formidable(), (req, res) => {
   cloudinary.uploader.upload(
     req.files.file.path,
     result => {
+      console.log(result);
       res.status(200).send({
         public_id: result.public_id,
         url: result.url

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FormField from "../utils/form_fields";
-import {
-  update,
-  generateData,
-  populateOptionFields,
-  isFormValid
-} from "../utils/form_actions";
+import { validate } from "../utils/misc";
 import { getCategories } from "../../actions/category_actions";
 import { PostAdd } from "../../actions/post_actions";
 import FileUpload from "../utils/fileupload";
@@ -80,7 +75,7 @@ class AddPost extends Component {
   componentDidMount() {
     const formdata = this.state.formdata;
     this.props.dispatch(getCategories()).then(response => {
-      const newFormData = populateOptionFields(
+      const newFormData = this.populateOptionFields(
         formdata,
         this.props.categories.byName,
         "category"
@@ -90,10 +85,37 @@ class AddPost extends Component {
       });
     });
   }
+  populateOptionFields(formdata, fileRows, type) {
+    const fieldOptions = [];
+    const newFormData = {
+      ...formdata
+    };
+    fileRows.map(item => {
+      fieldOptions.push({
+        key: item._id,
+        value: item.name
+      });
+    });
+    for (let key in newFormData) {
+      if (key === type) {
+        newFormData[key].config.options = fieldOptions;
+      }
+    }
+    return newFormData;
+  }
   updateForm(element) {
-    const newFormData = update(element, this.state.formdata, "login");
+    const newFormData = { ...this.state.formdata };
+    const newElement = { ...newFormData[element.id] };
+    newElement.value = element.event.target.value;
+
+    let valiData = validate(newElement);
+    newElement.valid = valiData[0];
+    newElement.validationMessage = valiData[1];
+
+    newFormData[element.id] = newElement;
     this.setState({
       formError: false,
+      formSuccess: false,
       formdata: newFormData,
       formErrMsg: ""
     });
@@ -111,9 +133,13 @@ class AddPost extends Component {
   };
   submitForm(event) {
     event.preventDefault();
-    let dataToSubmit = generateData(this.state.formdata, "addpost");
-    let formIsValid = isFormValid(this.state.formdata, "addpost");
+    let dataToSubmit = {};
+    let formIsValid = true;
 
+    for (let key in this.state.formdata) {
+      dataToSubmit[key] = this.state.formdata[key].value;
+      formIsValid = this.state.formdata[key].valid && formIsValid;
+    }
     if (formIsValid) {
       this.props.dispatch(PostAdd(dataToSubmit)).then(response => {
         if (response.payload.addSuccess) {
