@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { UserLogout } from "../../actions/user_actions";
-const logoutHandler = () => {
-  this.props.dispatch(UserLogout()).then(response => {
-    if (response.payload.success) {
-      this.props.history.push("/");
-    }
-  });
-};
+// const logoutHandler = () => {
+//   this.props.dispatch(UserLogout()).then(response => {
+//     if (response.payload.success) {
+//       this.props.history.push("/");
+//     }
+//   });
+// };
+import LogoutBtn from "../utils/logout_btn";
+
 class UserInfo extends Component {
   render() {
     return (
@@ -39,7 +41,8 @@ class UserInfo extends Component {
                   Edit
                 </Link>
               </div>
-              <button onClick={() => logoutHandler()}>Logout</button>
+              {/* <button onClick={() => logoutHandler()}>Logout</button> */}
+              <LogoutBtn />
             </div>
           </div>
         </div>

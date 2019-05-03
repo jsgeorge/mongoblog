@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import FormField from "../utils/form_fields";
-import { update, generateData, isFormValid } from "../utils/form_actions";
+//import { update, generateData, isFormValid } from "../utils/form_actions";
+import { validate } from "../utils/misc";
 import { UserLogin } from "../../actions/user_actions";
 class Login2 extends Component {
   state = {
@@ -48,26 +49,37 @@ class Login2 extends Component {
   };
 
   updateForm(element) {
-    const newFormData = update(element, this.state.formdata, "login");
+    // const newFormData = update(element, this.state.formdata, "login");
+    const newFormData = { ...this.state.formdata };
+    const newElement = { ...newFormData[element.id] };
+
+    newElement.value = element.event.target.value;
+
+    let valiData = validate(newElement);
+    newElement.valid = valiData[0];
+    newElement.validationMessage = valiData[1];
+
+    newFormData[element.id] = newElement;
+
     this.setState({
       formError: false,
       formdata: newFormData,
       formErrMsg: ""
     });
   }
+
   submitForm(event) {
     event.preventDefault();
 
-    // let dataToSubmit = {};
-    // let formIsValid = true;
+    // let dataToSubmit = generateData(this.state.formdata, "login");
+    // let formIsValid = isFormValid(this.state.formdata, "login");
+    let dataToSubmit = {};
+    let formIsValid = true;
 
-    // for (let key in this.state.formdata) {
-    //   dataToSubmit[key] = this.state.formdata[key].value;
-    //   formIsValid = this.state.formdata[key].valid && formIsValid;
-    // }
-    let dataToSubmit = generateData(this.state.formdata, "login");
-    let formIsValid = isFormValid(this.state.formdata, "login");
-
+    for (let key in this.state.formdata) {
+      dataToSubmit[key] = this.state.formdata[key].value;
+      formIsValid = this.state.formdata[key].valid && formIsValid;
+    }
     if (formIsValid) {
       this.props.dispatch(UserLogin(dataToSubmit)).then(response => {
         if (response.payload.loginSuccess) {

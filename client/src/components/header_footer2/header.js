@@ -77,7 +77,7 @@ class Header extends Component {
                       />
                     </Link>
 
-                    {/* <button onClick={() => this.logoutHandler()}>Logout</button> */}
+                    <button onClick={() => this.logoutHandler()}>Logout</button>
                   </li>
 
                   <li className="mobile">
